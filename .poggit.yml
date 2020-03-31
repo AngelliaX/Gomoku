@@ -1,0 +1,15 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/TungstenVn/Gomoku
+build-by-default: true
+branches:
+- master
+projects:
+  Gomoku:
+    path: ""
+    icon: icon.png
+    libs:
+    - src: jojoe77777/FormAPI/libFormAPI
+      version: ^1.3
+    - src: muqsit/InvMenu/InvMenu
+      branch: master
+      version: ^3.2.0
+...
