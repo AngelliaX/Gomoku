@@ -35,4 +35,4 @@ If you dont want to have a move on that moment? You can only put the stone back 
 ## **Config.yml**
  - Change the timePerTurn to change the time for each turn
  ## **Introduce**
- [![Youtube Introduce](https://img.youtube.com/vi/ZGMaG80Wi3g/0.jpg)](https://www.youtube.com/watch?v=ZGMaG80Wi3g)
+ [![Youtube Introduce](https://img.youtube.com/vi/F2UFtRGNSv4/0.jpg](https://www.youtube.com/watch?v=F2UFtRGNSv4)
