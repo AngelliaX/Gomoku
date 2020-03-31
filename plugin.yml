@@ -1,0 +1,5 @@
+name: Gomoku
+version: 0.6.9
+main: TungstenVn\Gomoku\Gomoku
+api: 3.0.0
+author: TungstenVn

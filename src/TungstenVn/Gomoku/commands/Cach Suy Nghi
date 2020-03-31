@@ -1,0 +1,88 @@
+
+
+finish onLose()
+
+search in .php "direct" "turn"
+
+Error need to be check back:
+-if you put the wool into your inventory, crash happen
+
+
+Cach Suy Nghi
+- neu ko den luot, cancelled all action
+-
+
+
+
+cac truong hop own,menu
+-own-menu
+ menu-own
+ own-own
+ menu-menu
+ own-drop
+ menu-drop
+
+
+
+8x6
+ matran:
+ van game la 3x3 thi matrix se la mang 5x5
+ x x x
+ x x x
+ x x x 
+ van game la 10x10 thi matrix la 7x7
+
+ chest, center: 21
+ x x x x x x x x
+ x x x x x x x x
+ x x x x x x x x
+ x x x x x x x x
+ x x x x x x x x
+ x x x x x x x x
+
+
+
+3x3 center: [1][1]
+
+x x x
+x x x
+x x x
+
+ 13x17 (not count barrier) => 15x19 center [7][9],  $corner = [5][6]
+Z [4,6] P[5,10]    8+4 12      7 15 23 31 39 47
+ x x x x x x x x y x x x x x x x x
+ x x x x x x x x y x x x x x x x x
+ x x x x x x x x y x x x x x x x x
+ x x x x x Z Z Z Z Z Z Z Z x x x x
+ x x x x x O O O O P O O O x x x x
+ x x x x x O O U U U O O O x x x x
+ y y y y y O O U X U O O O y y y y
+ x x x x x O O U U U O O O x x x x
+ x x x x x O O O O O O O O x x x x
+ x x x x x O O O O O O O O x x x x
+ x x x x x x x x y x x x x x x x x
+ x x x x x x x x y x x x x x x x x
+ x x x x x x x x y x x x x x x x x
+
+
+ 11x11
+ x x x x x y x x x x x
+ x x x x x y x x x x x
+ x x x x x y x x x x x
+ x x x x x y x x x x x
+ x x x x x y x x x x x
+ y y y y y y y y y y y
+ x x x x x y x x x x x
+ x x x x x y x x x x x
+ x x x x x y x x x x x
+ x x x x x y x x x x x
+ x x x x x y x x x x x
+
+
+
+
+ phone: invmenu,dropitemaction
+ win10: invmenu,cursor
+
+
+
