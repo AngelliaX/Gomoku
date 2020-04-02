@@ -89,12 +89,8 @@ class commands extends Command implements PluginIdentifiableCommand, Listener {
       return $form;
     }
     public $text =
-      ["+§eFor more info pls go to wikipedia.§r\n-Gomoku, also called Five in a Row,is a board game.\n-Your chessman is a stone in black or white.\n+§eSimple Rule To PLay:§r\n-The winner is the first player to form an unbroken chain of 5 stones horizontally, vertically, or diagonally.More than 5 do not count as win.\n-If you have a chain of 5 stones but being blocked by enemy stone in both ends, you dont win.
-       ",
-       "+Beside of listed rule in the 'What's  gomoku',there are more required rule for this plugin to be work.\n+§cOnly§e applies to Win10 players:§r\n§c1.§rDont place the stone to where has some item(sticks,barrier,other stone).\n\n§c2.§rDont throw the stone when you already pick it up.\nIf you dont want to have a move on that moment? You can only put the stone back to where it belongs\n\n§c3.§rDont contact with player inventory.\n\n
-       ",
-       "§ePremium feature:§r\n-'Claim a draw' feature\n-Audience feature\n-Block menu feature\n-Tie feature\n-and so on, are not included in the poggit version
-       ",
+      ["+§eFor more info pls go to wikipedia.§r\n-Gomoku, also called Five in a Row,is a board game.\n-Your chessman is a stone in black or white.\n+§eSimple Rule To PLay:§r\n-The winner is the first player to form an unbroken chain of 5 stones horizontally, vertically, or diagonally.More than 5 do not count as win.\n-If you have a chain of 5 stones but being blocked by enemy stone in both ends, you dont win.",
+       "+Beside of listed rule in the 'What's  gomoku',there are more required rule for this plugin to be work.\n+§cOnly§e applies to Win10 players:§r\n§c1.§rDont place the stone to where has some item(sticks,barrier,other stone).\n\n§c2.§rDont throw the stone when you already pick it up.\nIf you dont want to have a move on that moment? You can only put the stone back to where it belongs\n\n§c3.§rDont contact with player inventory.\n\n"
       ];
     public function helpForm(Player $player) {
       $form = new SimpleForm(function(Player $player, int $data = null) {
@@ -109,18 +105,14 @@ class commands extends Command implements PluginIdentifiableCommand, Listener {
           case 1:
             $this->textForm($player, "Plugin's Rules", $this->text[1]);
             break;
-          case 2:
-            $this->textForm($player, "Premium Feature", $this->text[2]);
-            break;
           default:
             break;
         }
       });
       $form->setTitle("§cGomoku §0Help Menu");
       $form->setContent("Use: /gom <name> to play");
-      $form->addButton("What's gomoku", 0, "textures/items/light_block_0");
-      $form->addButton("Plugin's Rules", 0, "textures/items/light_block_3");
-      $form->addButton("Premium Feature", 0, "textures/items/light_block_6");
+      $form->addButton("What's gomoku", 0, "textures/items/light_block_3");
+      $form->addButton("Plugin's Rules", 0, "textures/items/light_block_7");
       $form->addButton("Exit", 0, "textures/gui/newgui/undo");
       $player->sendForm($form);
       return $form;
