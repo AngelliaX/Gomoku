@@ -178,31 +178,22 @@ class checkWin {
       switch ($slotId) {
         case 12:
           return [0,0];
-          break;
         case 13:
           return [0,1];
-          break;
         case 14:
           return [0,2];
-          break;
         case 21:
           return [1,0];
-          break;
         case 22:
           return [1,1];
-          break;
         case 23:
           return [1,2];
-          break;
         case 30:
           return [2,0];
-          break;
         case 31:
           return [2,1];
-          break;
         case 32:
           return [2,2];
-          break;
     }
   }
 }

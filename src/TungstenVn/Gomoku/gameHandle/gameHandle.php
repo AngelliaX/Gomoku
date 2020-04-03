@@ -69,6 +69,11 @@ class gameHandle extends Task implements Listener {
       $this->timeLeft = $this->owner->main->getConfig()->getNested('timePerTurn');
       
       $menu = new createDefaultMenu($this, $player1->getName(), $player2->getName());
+      if($menu == null) {
+          $player1->sendMessage("There is some error , code: 1");
+          $player2->sendMessage("There is some error , code: 1");
+          return;
+      }
       $this->menu1->send($player1);
       $this->menu2->send($player2);
     }
@@ -190,19 +195,19 @@ class gameHandle extends Task implements Listener {
 
             if ($slotId <= 8) {
               $y += $slotId;
-            } else if (8 < $slotId && $slotId <= 17) {
+            } else if ($slotId <= 17) {
               $x += 1;
               $y += $slotId - 8 - 1;     #positive 1 for the stick line in the chest
-            } else if (17 < $slotId && $slotId <= 26) {
+            } else if ($slotId <= 26) {
               $x += 2;
               $y += $slotId - 16 - 2;
-            } else if (26 < $slotId && $slotId <= 35) {
+            } else if ($slotId <= 35) {
               $x += 3;
               $y += $slotId - 24 - 3;
-            } else if (35 < $slotId && $slotId <= 44) {
+            } else if ($slotId <= 44) {
               $x += 4;
               $y += $slotId - 32 - 4;
-            } else if (44 < $slotId && $slotId <= 53) {
+            } else if ($slotId <= 53) {
               $x += 5;
               $y += $slotId - 40 - 5;
             }
@@ -267,19 +272,19 @@ class gameHandle extends Task implements Listener {
                 }
                 if ($slotId <= 8) {
                   $y += $slotId;
-                } else if (8 < $slotId && $slotId <= 17) {
+                } else if ($slotId <= 17) {
                   $x += 1;
                   $y += $slotId - 8 - 1;     #positive 1 for the stick line in the chest
-                } else if (17 < $slotId && $slotId <= 26) {
+                } else if ($slotId <= 26) {
                   $x += 2;
                   $y += $slotId - 16 - 2;
-                } else if (26 < $slotId && $slotId <= 35) {
+                } else if ($slotId <= 35) {
                   $x += 3;
                   $y += $slotId - 24 - 3;
-                } else if (35 < $slotId && $slotId <= 44) {
+                } else if ($slotId <= 44) {
                   $x += 4;
                   $y += $slotId - 32 - 4;
-                } else if (44 < $slotId && $slotId <= 53) {
+                } else if ($slotId <= 53) {
                   $x += 5;
                   $y += $slotId - 40 - 5;
                 }

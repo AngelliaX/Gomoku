@@ -52,11 +52,16 @@ class gameHandle extends Task implements Listener {
 
       $this->player1 = $player1;
       $this->player2 = $player2;
-
+      $mapSize = null;
       $this->whoTurn = $this->player1->getName();
       $this->timeLeft = $this->owner->main->getConfig()->getNested('timePerTurn');
-      
+
       $menu = new createDefaultMenu($this, $player1->getName(), $player2->getName());
+      if($menu == null) {
+            $player1->sendMessage("There is some error , code: 1");
+            $player2->sendMessage("There is some error , code: 1");
+            return;
+      }
       $this->menu1->send($player1);
       $this->menu2->send($player2);
     }

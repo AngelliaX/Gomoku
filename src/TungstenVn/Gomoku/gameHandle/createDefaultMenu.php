@@ -2,12 +2,13 @@
 
 namespace TungstenVn\Gomoku\gameHandle;
 
+use http\Exception;
 use pocketmine\item\Item;
 
 use TungstenVn\Gomoku\gameHandle\gameHandle;
 
 use muqsit\invmenu\InvMenu;
-
+use muqsit\invmenu\SharedInvMenu;
 class createDefaultMenu {
 
 
@@ -23,6 +24,9 @@ class createDefaultMenu {
       //and it will gonna crash this plugin up
       $this->menu = InvMenu::create(InvMenu::TYPE_DOUBLE_CHEST)
                     ->setName("§f".$p1Name."§6 vs. "."§0".$p2Name);
+      if(!$this->menu instanceof SharedInvMenu){
+          return null;
+      }
       $this->menu->getInventory()->setItem(8, Item::get(280, 0, 1)->setCustomName("Up"));
       $this->menu->getInventory()->setItem(17, Item::get(280, 0, 1)->setCustomName("Down"));
       $this->menu->getInventory()->setItem(26, Item::get(280, 0, 1)->setCustomName("Right"));
@@ -33,6 +37,9 @@ class createDefaultMenu {
 
       $this->menu = InvMenu::create(InvMenu::TYPE_DOUBLE_CHEST)
                     ->setName("§f".$p1Name."§6 vs. "."§0".$p2Name);
+        if(!$this->menu instanceof SharedInvMenu){
+            return null;
+        }
       $this->menu->getInventory()->setItem(8, Item::get(280, 0, 1)->setCustomName("Up"));
       $this->menu->getInventory()->setItem(17, Item::get(280, 0, 1)->setCustomName("Down"));
       $this->menu->getInventory()->setItem(26, Item::get(280, 0, 1)->setCustomName("Right"));

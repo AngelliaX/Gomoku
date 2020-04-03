@@ -7,7 +7,7 @@ use pocketmine\item\Item;
 use TungstenVn\Gomoku\thvth\gameHandle\gameHandle;
 
 use muqsit\invmenu\InvMenu;
-
+use muqsit\invmenu\SharedInvMenu;
 class createDefaultMenu {
 
 
@@ -27,6 +27,9 @@ class createDefaultMenu {
     public function noImportant($p1Name, $p2Name,$check){
       $this->menu = InvMenu::create(InvMenu::TYPE_DOUBLE_CHEST)
                     ->setName("§f".$p1Name."§6 vs. "."§0".$p2Name);
+      if(!$this->menu instanceof SharedInvMenu){
+            return null;
+      }
       $this->menu->getInventory()->setItem(2, Item::get(160, 5, 1)->setCustomName("Barrier"));
       $this->menu->getInventory()->setItem(3, Item::get(160, 5, 1)->setCustomName("Barrier"));
       $this->menu->getInventory()->setItem(4, Item::get(160, 5, 1)->setCustomName("Barrier"));
