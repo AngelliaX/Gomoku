@@ -5,7 +5,6 @@ use pocketmine\command\CommandSender;
 use pocketmine\command\PluginIdentifiableCommand;
 use pocketmine\Player;
 use pocketmine\plugin\Plugin;
-use pocketmine\Server;
 use pocketmine\event\Listener;
 
 use TungstenVn\Gomoku\Gomoku;
@@ -14,7 +13,6 @@ use TungstenVn\Gomoku\thvth\gameHandle\gameHandle as tictactoe;
 use TungstenVn\Gomoku\blockDelayed;
 
 use jojoe77777\FormAPI\SimpleForm;
-use jojoe77777\FormAPI\ModalForm;
 use jojoe77777\FormAPI\CustomForm;
 class commands extends Command implements PluginIdentifiableCommand, Listener {
 
@@ -139,6 +137,8 @@ class commands extends Command implements PluginIdentifiableCommand, Listener {
       $form = new SimpleForm(function(Player $player2, $data) use ($player1, $array) {
         $result = $data;
         if ($result === null) {
+          $player1->sendMessage("§e".$player2->getName()." denied your request to play gomoku");
+          $player2->sendMessage("§eDenied successful");
           return;
         }
         if ($result == 0) {
@@ -179,7 +179,7 @@ class commands extends Command implements PluginIdentifiableCommand, Listener {
             $this->main->getScheduler()->scheduleDelayedTask(new blockDelayed($this, $name, $player1->getName()), 12000);
           }
           $player1->sendMessage("§e".$name."§r has blocked you for 10 mins");
-          $player2->sendMessage("Blocking §e".$player1->getName()."§r successful");
+          $player2->sendMessage("Blocking §e".$player1->getName()."§rfor 10 mins successful");
           return;
         }
       });

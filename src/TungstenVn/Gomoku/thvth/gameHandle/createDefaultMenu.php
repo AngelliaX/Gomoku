@@ -4,8 +4,6 @@ namespace TungstenVn\Gomoku\thvth\gameHandle;
 
 use pocketmine\item\Item;
 
-use TungstenVn\Gomoku\thvth\gameHandle\gameHandle;
-
 use muqsit\invmenu\InvMenu;
 use muqsit\invmenu\SharedInvMenu;
 class createDefaultMenu {

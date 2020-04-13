@@ -5,7 +5,6 @@ namespace TungstenVn\Gomoku\thvth\gameHandle;
 use pocketmine\scheduler\Task;
 use pocketmine\Player;
 use pocketmine\event\Listener;
-use pocketmine\Server;
 use pocketmine\item\Item;
 
 use pocketmine\event\inventory\InventoryTransactionEvent;
@@ -18,18 +17,9 @@ use pocketmine\inventory\PlayerInventory;
 use pocketmine\event\inventory\InventoryCloseEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 
-use pocketmine\network\mcpe\protocol\LevelEventPacket;
-use pocketmine\network\mcpe\protocol\LevelSoundEventPacket;
-use pocketmine\math\Vector3;
-use pocketmine\network\mcpe\protocol\PlaySoundPacket;
-
 use TungstenVn\Gomoku\commands\commands;
-use TungstenVn\Gomoku\thvth\gameHandle\createDefaultMenu;
-use TungstenVn\Gomoku\thvth\gameHandle\checkWin;
 use TungstenVn\Gomoku\thvth\sounds\soundHandle;
 
-use muqsit\invmenu\InvMenu;
-use muqsit\invmenu\InvMenuHandler;
 use muqsit\invmenu\inventory\InvMenuInventory;
 class gameHandle extends Task implements Listener {
 
@@ -168,7 +158,7 @@ class gameHandle extends Task implements Listener {
             if ($player->getName() != $this->player1->getName()) {
               $menu = $this->menu2;
             }
-            if ($menu->getInventory()->getItem($inv->getSlot()) != Item::get(0, 0, 0)) {
+            if ($menu->getInventory()->getItem($inv->getSlot())->getId() != 0) {
               $ev->setCancelled(true);
               $sound = new soundHandle($this);
               $sound->illigelMoveSound($player);
@@ -231,7 +221,7 @@ class gameHandle extends Task implements Listener {
               if ($slotId == 44) {
                 $slotId = $acts[1]->getSlot();
               }
-              if ($mobileMoveCheck == Item::get(0, 0, 0) && in_array($slotId,$this->slotIlligel)) {                          
+              if ($mobileMoveCheck->getId() == 0 && in_array($slotId,$this->slotIlligel)) {
                 $sound->sound3($player);
                 if ($player->getName() == $this->player1->getName()) {
                   $this->menu1->getInventory()->setItem(44, Item::get(35, 0, 1)->setCustomName("Stone"));
