@@ -6,7 +6,7 @@ projects:
   Gomoku:
     path: ""
     icon: icon.png
-    lints:
+    lint:
       phpstan: false
     libs:
     - src: jojoe77777/FormAPI/libFormAPI
