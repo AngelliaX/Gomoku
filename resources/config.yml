@@ -1,4 +1,9 @@
-
+#Thinking time for each turn
 timePerTurn: 20
+#the message after win/lose a game
+#MSG means message
+enableWinLoseMSG: true
+#the message when a player close the chest/quit while playing  
+enableForceLoseMSG: true
 
 blockList: []

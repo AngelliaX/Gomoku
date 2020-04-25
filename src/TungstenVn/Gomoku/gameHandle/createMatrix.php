@@ -6,9 +6,9 @@ class createMatrix
 {
 
 
-    private $owner;
     public $matrix;
     public $corner;
+    private $owner;
 
     public function __construct(gameHandle $owner, $mapSize)
     {

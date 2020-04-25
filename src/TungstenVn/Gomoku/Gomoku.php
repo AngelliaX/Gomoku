@@ -2,21 +2,22 @@
 
 namespace TungstenVn\Gomoku;
 
-use pocketmine\plugin\PluginBase;
-use pocketmine\event\Listener;
-
-use TungstenVn\Gomoku\commands\commands;
-
+use jojoe77777\FormAPI\SimpleForm;
 use muqsit\invmenu\InvMenu;
 use muqsit\invmenu\InvMenuHandler;
+use pocketmine\event\Listener;
+use pocketmine\plugin\PluginBase;
+use TungstenVn\Gomoku\commands\commands;
 
-use jojoe77777\FormAPI\SimpleForm;
 class Gomoku extends PluginBase implements Listener
 {
 
+    /** @var self $instance */
+    public static $instance;
 
     public function onEnable()
     {
+        self::$instance = $this;
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
 
         if (!class_exists(InvMenu::class) || !class_exists(SimpleForm::class)) {
@@ -26,15 +27,17 @@ class Gomoku extends PluginBase implements Listener
         }
         $this->saveDefaultConfig();
         $this->getConfig()->setNested("blockList", []);
-        $this->getConfig()->save();
 
+        $this->saveResource("database.yml");
+        $this->getConfig()->save();
         $cmds = new commands($this);
         $this->getServer()->getCommandMap()->register("gomoku", $cmds);
         $this->getServer()->getPluginManager()->registerEvents($cmds, $this);
+
+        $this->getServer()->getAsyncPool()->submitTask(new checkUpdate());
 
         if (!InvMenuHandler::isRegistered()) {
             InvMenuHandler::register($this);
         }
     }
-
 }

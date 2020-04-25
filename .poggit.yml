@@ -5,9 +5,9 @@ branches:
 projects:
   Gomoku:
     path: ""
-    icon: icon.png
+    icon: icon.gif
     lint:
-      phpstan: false
+      phpstan: true
     libs:
     - src: jojoe77777/FormAPI/libFormAPI
       version: ^1.3

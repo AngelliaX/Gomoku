@@ -51,6 +51,30 @@ class checkWin
         return false;
     }
 
+    public function returnCoord($slotId)
+    {
+        switch ($slotId) {
+            case 12:
+                return [0, 0];
+            case 13:
+                return [0, 1];
+            case 14:
+                return [0, 2];
+            case 21:
+                return [1, 0];
+            case 22:
+                return [1, 1];
+            case 23:
+                return [1, 2];
+            case 30:
+                return [2, 0];
+            case 31:
+                return [2, 1];
+            case 32:
+                return [2, 2];
+        }
+    }
+
     public function checkColumn($slotId, $symbol)
     {
         $coord = $this->returnCoord($slotId);
@@ -182,29 +206,5 @@ class checkWin
             return false;
         }
         return true;
-    }
-
-    public function returnCoord($slotId)
-    {
-        switch ($slotId) {
-            case 12:
-                return [0, 0];
-            case 13:
-                return [0, 1];
-            case 14:
-                return [0, 2];
-            case 21:
-                return [1, 0];
-            case 22:
-                return [1, 1];
-            case 23:
-                return [1, 2];
-            case 30:
-                return [2, 0];
-            case 31:
-                return [2, 1];
-            case 32:
-                return [2, 2];
-        }
     }
 }

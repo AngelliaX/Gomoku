@@ -2,8 +2,6 @@
 
 namespace TungstenVn\Gomoku\gameHandle;
 
-use TungstenVn\Gomoku\gameHandle\gameHandle;
-
 class checkWin
 {
 
@@ -45,6 +43,7 @@ class checkWin
                 break;
             }
         }
+
         if ($howManyStone >= 6) {
             return false;
         } else if ($howManyStone == 5) {
@@ -68,7 +67,7 @@ class checkWin
         for ($i = $x + 1; $i < $x + 6; $i++) {
             if ($this->owner->matrix[$i][$y] == $symbol) {
                 $howManyStone++;
-            } else if ($this->owner->matrix[$i][$x] == $opposit) {
+            } else if ($this->owner->matrix[$i][$y] == $opposit) {
                 $isBlock++;
                 break;
             } else {

@@ -3,18 +3,18 @@
 namespace TungstenVn\Gomoku\moveHandle;
 
 use pocketmine\item\Item;
-
 use TungstenVn\Gomoku\gameHandle\gameHandle;
+
 class moveHandle
 {
 
-    private $owner;
     public $corner;
     public $player, $menu;
     public $itemId =
         [
             "n"
         ];
+    private $owner;
 
     public function __construct(gameHandle $owner, $player)
     {
@@ -105,6 +105,32 @@ class moveHandle
             } else {
                 $this->owner->p2Corner = $this->corner;
             }
+        }
+    }
+
+    public function setInvenPlayer1($i, $o, $slotId)
+    {
+        if ($this->owner->matrix[$i][$o] == "#") {
+            $this->owner->menu1->getInventory()->setItem($slotId, Item::get(160, 5, 1)->setCustomName("§rBarrier"));
+        } else if ($this->owner->matrix[$i][$o] == "n") {
+            $this->owner->menu1->getInventory()->setItem($slotId, Item::get(0, 0, 1));
+        } else if ($this->owner->matrix[$i][$o] == "x") {
+            $this->owner->menu1->getInventory()->setItem($slotId, Item::get(35, 0, 1));
+        } else if ($this->owner->matrix[$i][$o] == "y") {
+            $this->owner->menu1->getInventory()->setItem($slotId, Item::get(35, 15, 1));
+        }
+    }
+
+    public function setInvenPlayer2($i, $o, $slotId)
+    {
+        if ($this->owner->matrix[$i][$o] == "#") {
+            $this->owner->menu2->getInventory()->setItem($slotId, Item::get(160, 5, 1)->setCustomName("§rBarrier"));
+        } else if ($this->owner->matrix[$i][$o] == "n") {
+            $this->owner->menu2->getInventory()->setItem($slotId, Item::get(0, 0, 1));
+        } else if ($this->owner->matrix[$i][$o] == "x") {
+            $this->owner->menu2->getInventory()->setItem($slotId, Item::get(35, 0, 1));
+        } else if ($this->owner->matrix[$i][$o] == "y") {
+            $this->owner->menu2->getInventory()->setItem($slotId, Item::get(35, 15, 1));
         }
     }
 
@@ -299,38 +325,11 @@ class moveHandle
         }
     }
 
-    public function setInvenPlayer1($i, $o, $slotId)
-    {
-        if ($this->owner->matrix[$i][$o] == "#") {
-            $this->owner->menu1->getInventory()->setItem($slotId, Item::get(160, 5, 1)->setCustomName("Barrier"));
-        } else if ($this->owner->matrix[$i][$o] == "n") {
-            $this->owner->menu1->getInventory()->setItem($slotId, Item::get(0, 0, 1));
-        } else if ($this->owner->matrix[$i][$o] == "x") {
-            $this->owner->menu1->getInventory()->setItem($slotId, Item::get(35, 0, 1));
-        } else if ($this->owner->matrix[$i][$o] == "y") {
-            $this->owner->menu1->getInventory()->setItem($slotId, Item::get(35, 15, 1));
-        }
-    }
-
-    public function setInvenPlayer2($i, $o, $slotId)
-    {
-        if ($this->owner->matrix[$i][$o] == "#") {
-            $this->owner->menu2->getInventory()->setItem($slotId, Item::get(160, 5, 1)->setCustomName("Barrier"));
-        } else if ($this->owner->matrix[$i][$o] == "n") {
-            $this->owner->menu2->getInventory()->setItem($slotId, Item::get(0, 0, 1));
-        } else if ($this->owner->matrix[$i][$o] == "x") {
-            $this->owner->menu2->getInventory()->setItem($slotId, Item::get(35, 0, 1));
-        } else if ($this->owner->matrix[$i][$o] == "y") {
-            $this->owner->menu2->getInventory()->setItem($slotId, Item::get(35, 15, 1));
-        }
-    }
-
     public function onLoadNewSpot($xPlaced, $yPlaced)
     {
         /* $xplaced and $yplaced is where a new stone be placed in the menu */
         /*this is the corner of the opposite player */
         /* $this->player is the player need to be loaded the new spot */
-
         if ($this->player->getName() == $this->owner->player1->getName()) {
             $this->corner = $this->owner->p2Corner;
             $this->owner->p1Corner = $this->corner;
@@ -362,9 +361,9 @@ class moveHandle
                 }
                 if ($i == $xPlaced && $o == $yPlaced) {
                     if ($this->player->getName() == $this->owner->player1->getName()) {
-                        $this->owner->menu1->getInventory()->setItem($slotId, Item::get(241, 15, 1)->setCustomName("New Move"));
+                        $this->owner->menu1->getInventory()->setItem($slotId, Item::get(122, 0, 1)->setCustomName("§rNew Move"));
                     } else {
-                        $this->owner->menu2->getInventory()->setItem($slotId, Item::get(241, 0, 1)->setCustomName("New Move"));
+                        $this->owner->menu2->getInventory()->setItem($slotId, Item::get(332, 0, 1)->setCustomName("§rNew Move"));
                     }
 
                 }

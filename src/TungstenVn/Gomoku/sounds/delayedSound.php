@@ -2,8 +2,9 @@
 
 namespace TungstenVn\Gomoku\sounds;
 
-use pocketmine\scheduler\Task;
 use pocketmine\network\mcpe\protocol\PlaySoundPacket;
+use pocketmine\scheduler\Task;
+
 class delayedSound extends Task
 {
 

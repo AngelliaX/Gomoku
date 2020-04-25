@@ -2,16 +2,15 @@
 
 namespace TungstenVn\Gomoku\sounds;
 
-use TungstenVn\Gomoku\gameHandle\gameHandle;
-
 use pocketmine\network\mcpe\protocol\PlaySoundPacket;
+
 class soundHandle
 {
 
 
     public $owner;
 
-    public function __construct(gameHandle $owner)
+    public function __construct($owner)
     {
         $this->owner = $owner;
     }
@@ -19,32 +18,6 @@ class soundHandle
     public function sound1($player)
     {
         $this->livingRoom($player, "game.player.attack.strong");
-    }
-
-    public function sound2($player)
-    {
-        $this->livingRoom($player, "game.player.hurt");
-    }
-
-    public function sound3($player)
-    {
-        $this->livingRoom($player, "mob.cat.meow");
-    }
-
-    public function losingSound($player)
-    {
-        $this->livingRoom($player, "mob.enderdragon.death");
-        $this->livingRoom($player, "mob.endermen.scream");
-    }
-
-    public function illigelMoveSound($player)
-    {
-        $this->livingRoom($player, "mob.horse.angry");
-    }
-
-    public function onTurn($player)
-    {
-        $this->livingRoom($player, "bubble.pop");
     }
 
     public function livingRoom($player, $txt)
@@ -57,6 +30,32 @@ class soundHandle
         $sound->pitch = 1;
         $sound->soundName = $txt;
         $this->owner->owner->main->getServer()->broadcastPacket([$player], $sound);
+    }
+
+    public function sound2($player)
+    {
+        $this->livingRoom($player, "game.player.hurt");
+    }
+
+    public function sound3($player)
+    {     
+        $this->livingRoom($player, "game.player.attack.strong");
+    }
+
+    public function losingSound($player)
+    {
+        $this->livingRoom($player, "mob.enderdragon.death");
+        $this->livingRoom($player, "mob.endermen.scream");
+    }
+
+    public function illigelMoveSound($player)
+    {
+        $this->livingRoom($player, "mob.irongolem.hit");
+    }
+
+    public function onTurn($player)
+    {
+        $this->livingRoom($player, "bubble.pop");
     }
 
     public function winningSound($player)
