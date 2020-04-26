@@ -34,10 +34,13 @@ class Gomoku extends PluginBase implements Listener
         $this->getServer()->getCommandMap()->register("gomoku", $cmds);
         $this->getServer()->getPluginManager()->registerEvents($cmds, $this);
 
-        $this->getServer()->getAsyncPool()->submitTask(new checkUpdate());
-
         if (!InvMenuHandler::isRegistered()) {
             InvMenuHandler::register($this);
+        }
+
+        $enable = $this->getConfig()->getNested('enableUpdateChecker');
+        if($enable){
+            $this->getServer()->getAsyncPool()->submitTask(new checkUpdate());
         }
     }
 }

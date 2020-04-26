@@ -25,5 +25,8 @@
  - Change the timePerTurn to change the time for each turn
  - Enable/disable the message after a win/lose match with enableWinLoseMSG
  - Enable/disable the message of a match that ended due to player's quitting or closing the chest with enableForceLoseMSG
- ## **Introduce**
+## **Future addition**
+ - [] Claim a draw feature
+ - [] Play with bot(better with AI)
+## **Introduce**
 [![Youtube Introduce](https://img.youtube.com/vi/F2UFtRGNSv4/0.jpg)](https://www.youtube.com/watch?v=F2UFtRGNSv4)
